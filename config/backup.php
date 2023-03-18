@@ -35,7 +35,7 @@ return [
                     base_path('installed'),
                     base_path('.editorconfig'),
                     base_path('.git'),
-//                    base_path('.env.example'),
+                    base_path('resources/views/demo.blade.php'),
                     base_path('.env'),
                     base_path('README.md'),
                 ],
