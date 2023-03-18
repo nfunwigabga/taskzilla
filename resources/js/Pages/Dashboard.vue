@@ -125,28 +125,28 @@ import { usePage } from "@inertiajs/vue3";
 import { Tab, TabPanel } from "@headlessui/vue";
 import BaseTabsCard from "@/Components/BaseTabsCard.vue";
 import TaskListItem from "@/Components/Tasks/TaskListItem.vue";
-import { computed } from "vue";
+import { computed, watch } from "vue";
 
 
 const props = defineProps({
   members: Object,
   tasks: [Array, Object],
   projects: Array,
-  invitations: Array
+  invitations: Array,
+  auth: Object
 });
 
 
 const { isMounted } = useMounted();
 
-const { auth } = usePage().props;
-
-const users = computed(() => props.members.data.filter(m => m.id !== auth.user.id));
+const users = computed(() => props.members.data.filter(m => m.id !== props.auth.user.id));
 
 const tabs = [
   { id: "open", name: "Open" },
   { id: "reported", name: "Reported" },
   { id: "closed", name: "Recently resolved" }
 ];
+
 
 function currentDate() {
   return new Date()

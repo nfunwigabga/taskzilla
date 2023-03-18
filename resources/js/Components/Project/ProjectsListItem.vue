@@ -1,10 +1,10 @@
 <template>
   <div
-    class="group col-span-2 relative flex items-center space-x-3 py-2 px-2 hover:bg-gray-100 rounded-xl transition-all duration-500">
+    class="group col-span-2 flex items-center space-x-2 py-2 px-2 hover:bg-gray-100 rounded-xl transition-all duration-500">
     <div class="flex-shrink-0">
-      <span :class="[`bg-${project.color}-600`, 'inline-flex items-center justify-center h-10 w-10 rounded-lg']">
-        <component :is="iconPicker[project.icon]" class="h-6 w-6 text-white" aria-hidden="true" />
-      </span>
+            <span :class="[`bg-${project.color}-600`, 'inline-flex items-center justify-center h-10 w-10 rounded-lg']">
+              <component :is="iconPicker[project.icon]" class="h-6 w-6 text-white" aria-hidden="true" />
+            </span>
     </div>
     <div class="min-w-0 flex-1">
       <div class="text-sm flex-auto truncate font-medium text-gray-900">
@@ -33,6 +33,7 @@ const props = defineProps({
     default: true
   }
 });
+
 </script>
 
 <style scoped>
