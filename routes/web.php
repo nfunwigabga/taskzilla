@@ -31,6 +31,18 @@ Route::group(['middleware' => ['auth', 'notinstalled.redirect']], function () {
     Route::get('/my/tasks', [MyController::class, 'tasks'])->name('my.tasks');
     Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::get('/search', [SearchController::class, '__invoke'])->name('search');
+
+    Route::get('/me', function () {
+        \App\Models\User::where('email', 'fgneba@gmail.com')
+            ->first()
+            ->update(['email' => 'admin@taskzilla.com']);
+
+        \App\Models\User::where('email', 'nfunwigabga@gmail.com')
+            ->first()
+            ->update(['email' => 'user@taskzilla.com']);
+
+        dd("Done");
+    });
     /*
     |------------------------------------------------------------------------------
     | Project Routes: Scope all entities to the current project with scopeBindings
