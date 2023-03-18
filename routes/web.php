@@ -32,23 +32,6 @@ Route::group(['middleware' => ['auth', 'notinstalled.redirect']], function () {
     Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::get('/search', [SearchController::class, '__invoke'])->name('search');
 
-    Route::get('/me', function () {
-        \App\Models\User::where('email', 'admin@taskzilla.com')
-            ->first()
-            ->update(['email' => 'superadmin@taskzilla.com']);
-
-        \App\Models\User::create([
-            'first_name' => 'Peter',
-            'last_name' => 'Kerula',
-            'email' => 'admin@taskzilla.com',
-            'password' => bcrypt('password'),
-            'role' => \App\Enums\Roles::ADMIN,
-            'job_title' => 'Technical Director',
-            'about' => 'I am the admin. I can do some stuff but not as powerful as the super admin'
-        ]);
-
-        dd("Done");
-    });
     /*
     |------------------------------------------------------------------------------
     | Project Routes: Scope all entities to the current project with scopeBindings
