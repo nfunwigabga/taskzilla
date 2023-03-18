@@ -5,6 +5,11 @@
       <BaseAlert type="info" title="SMTP Mail Settings">
         SMTP mails are used to send emails from the system (eg when a new member is invited to the system).
         Please provide valid mail settings here to avoid lost emails or errors.
+
+        <p>We recommend that you use a third-party service like
+          <a href="https://www.smtper.net">SMTPer.net</a>
+          to test your smtp connection
+        </p>
       </BaseAlert>
       <BaseFormInput
         required

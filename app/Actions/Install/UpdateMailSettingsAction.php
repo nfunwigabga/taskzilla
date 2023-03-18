@@ -23,13 +23,14 @@ class UpdateMailSettingsAction
                 : null
         ]);
 
-        try {
-            \Mail::send('emails.test', [], fn($message) => $message->to($data->mail_from_address)->subject('Testing mails'));
-            return true;
-        } catch (\Exception $e) {
-            info($e->getMessage());
-            return false;
-        }
+        return true;
+//        try {
+//            \Mail::send('emails.test', [], fn($message) => $message->to($data->mail_from_address)->subject('Testing mails'));
+//            return true;
+//        } catch (\Exception $e) {
+//            info($e->getMessage());
+//            return false;
+//        }
     }
 
 }

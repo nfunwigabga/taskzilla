@@ -27,9 +27,9 @@ return [
                  * Directories used by the backup process will automatically be excluded.
                  */
                 'exclude' => [
-                    base_path('vendor'),
+//                    base_path('vendor'),
                     base_path('node_modules'),
-                    base_path('documentation'),
+//                    base_path('documentation'),
                     base_path('_ide_helper.php'),
                     base_path('.phpstorm.meta.php'),
                     base_path('installed'),
@@ -38,6 +38,7 @@ return [
                     base_path('resources/views/demo.blade.php'),
                     base_path('.env'),
                     base_path('README.md'),
+                    base_path('public/demo'),
                 ],
 
                 /*
