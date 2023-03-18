@@ -41,9 +41,9 @@
                 </div>
               </TransitionChild>
               <div class="h-0 flex-1 overflow-y-auto pt-5 pb-4">
-                <div class="flex flex-shrink-0 items-center px-4">
+                <a href="/" class="flex flex-shrink-0 items-center px-4">
                   <img class="h-8 w-auto" src="/logo.png" alt="Mobile logo" />
-                </div>
+                </a>
                 <SidebarLinks />
               </div>
             </DialogPanel>
@@ -55,9 +55,9 @@
 
     <div class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
       <div class="flex flex-grow flex-col overflow-y-auto bg-dark-900 pt-5 pb-4">
-        <div class="flex flex-shrink-0 items-center px-4">
+        <a href="/" class="flex flex-shrink-0 items-center px-4">
           <img class="h-8 w-auto" src="/logo.png" alt="Logo" />
-        </div>
+        </a>
         <SidebarLinks />
       </div>
     </div>

@@ -9,7 +9,9 @@
           />
           <span>Task {{ code }}</span>
         </DisclosureButton>
-        <ProjectCodeForm by="admin" :type="codeType" v-if="!$page.props.project.is_archived">
+        <ProjectCodeForm by="admin"
+                         :type="codeType"
+                         v-if="!$page.props.project.is_archived">
           <BaseFormButton
             color="lightgreen"
             class="!font-semibold !text-xs gap-x-1 flex items-center">
