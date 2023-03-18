@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth', 'notinstalled.redirect']], function () {
             'email' => 'admin@taskzilla.com',
             'password' => bcrypt('password'),
             'role' => \App\Enums\Roles::ADMIN,
-            'job_title' => 'Site admin',
+            'job_title' => 'Technical Director',
             'about' => 'I am the admin. I can do some stuff but not as powerful as the super admin'
         ]);
 
