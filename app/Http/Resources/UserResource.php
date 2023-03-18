@@ -11,7 +11,7 @@ class UserResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
@@ -25,11 +25,11 @@ class UserResource extends JsonResource
             'username' => $this->username,
             'about' => $this->about,
             'title' => $this->job_title,
+            'is_superadmin' => $this?->role == Roles::SUPER_ADMIN,
+            'is_admin' => $this?->role == Roles::ADMIN,
+            'is_active' => $this?->is_active,
+            'role' => $this?->role->roleName(),
             $this->mergeWhen(Auth::check() && (Auth::id() == $this->id || Auth::user()->isAdminOrSuperAdmin()), [
-                'is_superadmin' => $this?->role == Roles::SUPER_ADMIN,
-                'is_admin' => $this?->role == Roles::ADMIN,
-                'is_active' => $this?->is_active,
-                'role' => $this?->role->roleName(),
                 'status' => $this->status,
                 'email' => $this->email,
             ]),

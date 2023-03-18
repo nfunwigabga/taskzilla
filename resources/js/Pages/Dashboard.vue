@@ -59,7 +59,9 @@
                       <div>
                         <h3 class="text-base font-semibold leading-4 md:leading-7 tracking-tight text-gray-900">
                           {{ user.name }}</h3>
-                        <p class="text-sm font-semibold leading-6 text-indigo-600">{{ user.role }}</p>
+                        <p class="text-sm font-semibold leading-6 text-indigo-600">
+                          {{ user.role }}
+                        </p>
                       </div>
                     </Link>
                   </li>

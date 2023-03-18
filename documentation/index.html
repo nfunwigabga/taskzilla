@@ -76,28 +76,15 @@
         <!-- SECTION 3: Admin Site Settings -->
         <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span
           class="theme-icon-holder mr-2"><i class="fas fa-arrow-down"></i></span>Configuration</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Site Settings</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Video Upload</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Site Currency</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Payment Gateways</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">Mail Settings</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-2-6">License Information</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">User management</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Logo and Favicon</a></li>
+        <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Other settings</a></li>
 
 
         <!-- SECTION 3: Financial Transactions -->
-        <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span
-          class="theme-icon-holder mr-2"><i class="fas fa-box"></i></span>Financial Transactions</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Discount Coupons</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Purchasing a course</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Refunds and Periods</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">Paying Instructors</a></li>
-
-
         <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span
-          class="theme-icon-holder mr-2"><i class="fas fa-cogs"></i></span>Updates</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Updating the application</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Upcoming Features</a></li>
-        <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Changelog</a></li>
+          class="theme-icon-holder mr-2"><i class="fas fa-box"></i></span>Code Design (for developers)</a></li>
+
       </ul>
 
     </nav><!--//docs-nav-->
@@ -332,386 +319,61 @@
               as well as make other users administrators.
             </li>
           </ul>
-
-          <h5 class="pt-3">
-            <i class="fas fa-cog mr-1"></i> Author Earnings
-          </h5>
-          <p>
-            This specifies the percentage value of each sale that should go to the course instructor.
-          </p>
-          <ul>
-            <li>
-              <b>Organic Sales Percen:</b> Percentage paid to course instructor when the sale occurs organically
-              (ie when the sale does not result from the Instructor's PROMO code.)
-            </li>
-            <li>
-              <b>Promo Sales Percent:</b> Percentage paid to course instructor when the course is purchased using a
-              discount
-              coupon created by the instructor.
-            </li>
-          </ul>
-
-          <h5 class="pt-3">
-            <i class="fas fa-cog mr-1"></i> Images
-          </h5>
-          <p>
-            Here, you can upload the site Logo, Favicon and the banner image that appears on the homepage of the site.
-          </p>
-          <ul>
-            <li>
-              <b>Logo:</b> Should have a transparent background.
-            </li>
-            <li>
-              <b>Favicon:</b> Square image, <code>.png</code> or <code>.ico</code>
-            </li>
-            <li>
-              <b>Homepage Banner Image:</b>, preferably <code>1440x512</code> in size.
-            </li>
-          </ul>
         </section><!--//section-->
 
-        <section class="docs-section" id="item-2-2">
-          <h2 class="section-heading">Video Content Settings</h2>
-          <h5 class="pt-3">
-            <i class="fas fa-cog mr-1"></i> Queues
-          </h5>
+        <section class="docs-section" id="item-3-2">
+          <h2 class="section-heading">3.2: Logo and Favicon</h2>
           <p>
-            Here, you can manage how you want the application to process jobs. This is especially
-            how you want video uploads to be handled. There are two options:
-          </p>
-          <ul>
-            <li><b>Database:</b>
-              With this option, when a user uploads a video, it will be logged in a queue in the database
-              and processed accordingly. The user will not have to wait for the video upload to complete. The
-              video will be placed in a queue and processed in the background.
-              We highly recommend that you choose this option so as not to keep users waiting for video uploads
-              to complete (especially if you are using FFMpeg to process videos).
-
-              <div class="alert alert-info">
-                <b>NB</b> If you decide to use Database Driver for queuing (and we recommend that you do), then in your
-                server, you will need to set up a cron job with the following expression:
-                <br />
-                <code>
-                  */5 * * * * /path-to-php/php /path-to-your-website/artisan schedule:run >> /dev/null 2>&1
-                </code>
-                <p>For instance:</p>
-                <code>
-                  */5 * * * * /usr/local/bin/php /home/myusername/public_html/artisan schedule:run >> /dev/null 2>&1
-                </code>
-                <p>
-                  This command will execute the task scheduler every 5 minutes and process any videos that are in the
-                  queue.
-                  The Scheduler runs an internal command to process videos every 10 minutes.
-                </p>
-              </div>
-            </li>
-            <li><b>Sync:</b>
-              With the Sync queue processing, nothing is queued for later. All queues are processed
-              instantly and the user will need to wait for the process to complete before they proceed with the video
-              upload process.
-            </li>
-          </ul>
-
-          <h5 class="pt-3">
-            <i class="fas fa-cog mr-1"></i> Video Settings
-          </h5>
-          <ul>
-            <li><b>Video Provider:</b>
-              With ArcInspire, Intructors can Upload video content to their courses but they can also use YouTube
-              videos.
-              By default, both Video Upload and YouTube are enabled. If you would want to serve only one of these
-              options,
-              select the corresponding choice.
-            </li>
-            <li>
-              <b>Enable video encoding:</b>
-              This option is specifically for anyone running their site on a server where they have control to
-              install <code>FFMpeg</code> for video processing. <code>FFMpeg</code> is a PHP package that allows
-              for video processing (encoding). If you select this option, then each video uploaded by the users
-              will be processed in 2 different definitions - a large and a small sized video. This is good if you
-              wish to serve videos in both HD and SD versions. If Video Encoding is enabled, then you can also specify
-              the HD and SD dimensions for videos (defaults as 1280x720 for 720HD videos and 640x360 for 360SD videos).
-            </li>
-            <li>
-              <b>Video Max Size:</b> This is the maximum size of video that an Instructor can upload. The default is
-              20MB.
-              <span
-                class="text-info"><b>NOTE:</b> Ensure that the <code>post_max_size</code> and <code>file_upload_size</code> parameters in your
-								<code>PHP.ini</code> are greater than the value you choose here to allow your server handle large file uploads.
-								</span>
-            </li>
-            <li>
-              <b>Video Upload Location:</b>
-              You can choose to save uploaded videos to your local server or to Amazon s3 bucket. If you choose to
-              upload to
-              Amazon s3, then you will also need to provide the Amazon s3 credentials such as
-              <code>AWS Access ID</code>, <code>AWS Region</code>, <code>s3 Bucket</code> and <code>AWS URL
-              (optional)</code>
-            </li>
-          </ul>
-        </section><!--//section-->
-
-        <section class="docs-section" id="item-2-3">
-          <h2 class="section-heading">Site Currency Settings</h2>
-          <p>
-            ArcInspire supports multiple currencies in the frontend, but all payment is only collected in the main
-            currency.
-            Users will be able to switch currencies and view prices in other currencies base on the settings in the
-            admin panel.
-          </p>
-          <p>
-            Each currency has a <code>Conversion Rate</code>. The Conversion Rate of the Default Currency must be equal
-            to 1.
-            The conversion rates of all other currencies should be relative to the default currency.
+            The logo and favicons are located in the <code>public</code> folder. Simply replace the
+            current ones with yours and that's it.
           </p>
         </section><!--//section-->
 
-        <section class="docs-section" id="item-2-4">
-          <h2 class="section-heading">Payment Gateways</h2>
+        <section class="docs-section" id="item-3-3">
+          <h2 class="section-heading">3.3: Other site settings</h2>
           <p>
-            At the moment, ArcInspire supports PayPal payment and Credit Card Processing. You can choose to use one or
-            both ot these options.
-          </p>
-          <h5 class="pt-3">
-            <i class="fas fa-cog mr-1"></i> PayPal Payment
-          </h5>
-          <p>
-            In order to use PayPal payment, you need to create and provide your PayPal API client ID and Secret Key.
-            You need to enter both the Demo (Sandbox) keys as well as the LIVE keys. Follow these steps to obtain the
-            API
-            credentials on PayPal:
-          </p>
-          <ol>
-            <li>Go to <a href="https://developer.paypal.com/" target="_blank">PayPal Developer Account</a> and login
-            </li>
-            <li>In the "My Application & Credentials" menu click on "Create App" button to create a new all.</li>
-            <li>
-              Under the "App Settings", make sure that the the following features are enabled:
-              <ul>
-                <li>Accept Payments</li>
-                <li>Invoicing</li>
-                <li>Payouts</li>
-                <li>Disputed</li>
-              </ul>
-            </li>
-            <li>
-              Copy the <b>Client ID</b> and <b>Secret</b> keys and enter them in your Admin Dashboard.
-            </li>
-            <li>
-              Do same for both LIVE and SANDBOX keys. Note that for LIVE keys, you may have to manually
-              request PayPal to add the <b>Payouts</b> feature.
-            </li>
-          </ol>
-          <h5 class="pt-3">
-            <i class="fas fa-cog mr-1"></i> Credit Card Processors
-          </h5>
-          <p>
-            At the moment, there are two credit card processors available - <b>Stripe</b>
-            and <b>RazorPay</b>. You can only choose to use on of these options, and in each case, you also need to
-            provide the corresponding API Keys.
-          </p>
-          <h5 class="pt-3">
-            <i class="fas fa-credit-card mr-1"></i> Stripe
-          </h5>
-          <p>For Stripe, you can go to
-            <a href="https://stripe.com" target="_blank">Stripe.com</a> to create a Free account if you do not have one
-            yet.
-            Once an account is created, you can
-            <a href="https://stripe.com/docs/keys" target="_blank">follow the documentation on the Stripe Help page </a>
-            to obtain the API Credentials for both Sandbox (Test) and Live environments.
-          </p>
-
-          <h5 class="pt-3">
-            <i class="fas fa-credit-card mr-1"></i> RazorPay
-          </h5>
-          <p>This is a Payment Gateway for India and supports multiple currencies. You can go to
-            <a href="https://razorpay.com/" target="_blank">Razorpay.com</a> to create a Free account if you do not have
-            one yet.
-            Once an account is created, you can
-            <a
-              href="https://razorpay.freshdesk.com/support/solutions/articles/11000060257-how-do-i-generate-the-api-keys-"
-              target="_blank">
-              follow the documentation on the RazorPay Help page
-            </a> to obtain the API Credentials for both Sandbox and Live environments.
-          </p>
-
-          <h5>
-            Note: Make sure to turn your Payment Modes <b>(PayPal mode, Stripe Mode and/or RazorPay mode)</b> from
-            "Sandbox" to "Live"
-            when you are ready to start collecting live payments.
-          </h5>
-        </section><!--//section-->
-
-        <section class="docs-section" id="item-2-5">
-          <h2 class="section-heading">Mail Settings</h2>
-          <p>
-            You must provide working MAIL settings to enable
-            the script send system emails. If your mail settings are wrong, users will not be able to
-            register to the site (for example), as they need to receive a confirmation email to verify their
-            account when they register.
-          </p>
-          <p>
-            ArcInspire can work with any of the default Laravel mail drivers -
-            <code>SMTP, Mailgun, Sparkpost, Postmark, SES and Sendmail</code>.
-            On the form, select the mail driver you would like to use and enter the relevant information for the
-            selected driver.
-          </p>
-          <p>
-            NB: The free version of Mailgun should be sufficient for this script as it provides 10,000 free emails /
-            month.
-          </p>
-          <p>
-            If you are using SMTP, you can use a service like
-            <a href="http://smtper.net" target="_blank">SMTPer.net</a> to test your credentials.
+            In the admin panel, you will also see other settings, including your email settings and site name.
+            Simply update the fields in the form and you're good to go.
           </p>
         </section><!--//section-->
-
-        <section class="docs-section" id="item-2-6">
-          <h2 class="section-heading">License Information</h2>
-          <p>
-            To be able to dowmload update packages, you need to provide your <b>Envato Username</b> and a valid <b>Purchase
-            Code</b>.
-            Follow <a href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code-"
-                      target="_blank">these instructions</a>
-            to obtain the Purchase Code for this item.
-          </p>
-          <p>
-            Enter the Purchase Code and Envato Username in the form. If these credentials are not valid, update
-            processes will fail.
-          </p>
-        </section><!--//section-->
-      </article><!--//docs-article-->
-
+      </article>
 
       <article class="docs-article" id="section-4">
         <header class="docs-header">
           <h1 class="docs-heading">Code Design Pattern</h1>
           <section class="docs-intro">
             <p>
-              ArcInspire offers the possibility for <code>course purchase</code>, <code>management of discount
-              coupons</code>,
-              <code>processing of purchase refunds</code> and <code>paying out earnings</code> to course instructors.
+              We have crafte the source code in a clean way. It uses:
             </p>
+            <ul>
+              <li>Laravel 10</li>
+              <li>Vue.js 3 with Composition API</li>
+              <li>Inertia.js 1.0 (latest version)</li>
+            </ul>
           </section><!--//docs-intro-->
+
+          <p>
+            The application uses <code>Actions</code> and <code>Data Transfer Objects</code>
+            to keep the code clean and readable. Besides the regular directories that come with
+            Laravel, the following new directories are created:
+          </p>
+          <pre>
+            <code>
+              |- app
+              |---- Actions - contains action classes. Each action is designed to do one thing.
+              |---- Data - contains Data Transfer Objects. Used for form validation and formatting request data to PHP objects
+              |---- Enums - contains PHP Enums for various data points. Very valuable for readability
+              |---- Filters - contains Eloquent query filters used in Pipelines
+              |---- Rules - contains custom rules for form validation
+              |---- Support - contains various utility classes and helper functions
+              |---- Trait - contains Model traits such as traits handling String Primary Key generation
+            </code>
+            </pre>
+          <p>
+            To compile frontend assets, we used <code>yarn</code>. But feel free to use
+            <code>npm</code> if that works better for you.
+          </p>
         </header>
-        <section class="docs-section" id="item-3-1">
-          <h2 class="section-heading">Discount Coupons</h2>
-          <p>
-            There are two categories of discount coupons - <code>Sitewide Coupons</code> and <code>Individual Course
-            Coupons</code>
-          </p>
-          <h5 class="pt-3">
-            <i class="fas fa-cog mr-1"></i> Sitewide Coupons
-          </h5>
-          <p>
-            This is a coupon that is created by the site Administrator and can be applied to any course on the platform.
-            When a user
-            goes to their shopping cart, the system checks if there is any valid sitewide coupon in the database and if
-            there is, it automatically applies the
-            coupon to the shopping cart. Sitewide discount coupons can be managed from the Admin panel via the
-            <code>Discount Coupons</code> menu link. There can only be one active Sitewide coupon at any given time.
-          </p>
-          <p>
-            If a course is purchased using a Sitewide coupon, then the sale is considered to be <code>Organic</code>, in
-            which case the
-            instructor's commission from that sale is calculated based on the <code>Organic sales percent</code> in the
-            Author earnings setting
-            of the admin panel (default is 40%).
-          </p>
-
-          <h5 class="pt-3">
-            <i class="fas fa-cog mr-1"></i> Course-specific Coupons
-          </h5>
-          <p>
-            These coupons are created by the course intructor in their course management dashboard, and can be applied
-            only to the specific course.
-            The instructor can create as many coupons for a course as they want.
-          </p>
-          <p>
-            If a course is purchased using a course-specific coupon, then the sale is considered to be
-            <code>Promo</code>, in which case the
-            instructor's commission from that sale is calculated based on the <code>Promo sales percent</code> in the
-            Author earnings setting
-            of the admin panel (because it means the sale originated from the instructor's promotion).
-          </p>
-
-          <p>
-            When admin or intructors want to create a new coupon, they are presented with two options - Either a "FREE"
-            coupon
-            (which students can use to enroll to the course for free), or a "Discounted Price" which is a percentage of
-            the price that
-            should be reduced (minimum is 5%).
-          </p>
-        </section><!--//section-->
-
-        <section class="docs-section" id="item-3-2">
-          <h2 class="section-heading">Purchasing a Course</h2>
-          <p>
-            ArcInspire comes with a shopping cart. Multiple courses can be purchased at once in a cart, and one or more
-            discount coupons can be applied to the cart.
-            If a course price is 0 (Free), then the user does not go through the cart but is directly presented with a
-            button to enroll into the course. Otherwise,
-            the user can proceed to the shopping cart (where they can add/remove coupons or remove items from the cart)
-            and then proceed to the checkout page.
-          </p>
-          <p>
-            Course purchase can be done with PayPal or Credit Card. Please see the <a href="#item-2-4">Payment
-            Gateways</a> section for how to setup the payment
-            providers in the admin panel.
-          </p>
-        </section><!--//section-->
-
-        <section class="docs-section" id="item-3-3">
-          <h2 class="section-heading">Refunds and Periods</h2>
-          <p>
-            Instructors are paid monthly, following pre-generated 30-day periods. Once a user makes a purchase on the
-            site,
-            each payment is attached to a specific period - usually 2 months ahead of the current period. This is
-            because the systems allows
-            a <code>30-day money-back guarantee</code> for all purchases. So once a purchase is made, the student has 30
-            days to request a refund
-            (no questions asked). So if a user requests a refund, the administrator can process it directly in the admin
-            panel. Once processed, the student is
-            unenrolled to the course and any reviews the student might have written for the course are deleted. The
-            student is also notified by email.
-          </p>
-          <p>
-            All refunds are made directly to the same payment method the user used to make the initial purchase. So if a
-            course was purchased with PayPal, the
-            refund will be made directly to the same PayPal account. Same with credit cards.
-          </p>
-          <p>
-            Once a payment period is over, the Admin will be able to "Close the period" from the admin panel under the
-            <code>Finance > Payouts</code> menu. You will not be allowed to close a period that has not ended. Once the
-            period is closed,
-            all payouts for all users are calculated for that period immediately (taking into account any refunds that
-            might have been made for that period)
-          </p>
-        </section><!--//section-->
-
-        <section class="docs-section" id="item-3-4">
-          <h2 class="section-heading">Instructor Payouts</h2>
-          <p>
-            Once a payment period is closed and payouts automatically calculated, the Admin will see a list of all
-            payouts for the site. Any payout with the
-            value of 0 is automatically marked as "Completed". <code>ALL PAYOUTS ARE MADE USING PAYPAL</code>. So if an
-            instructor has a payout but has not
-            provided their PayPal Email Accounts (which they can do in the user account settings in the frontend), the
-            Admin will be presented with a
-            button to send an Email reminder to the Instructor to enter their PayPal email address.
-          </p>
-          <p>
-            If an instructor has a Payout greater than 0 and has provided their PayPal account, they admin will be able
-            to directly process the PayPal payment
-            from ArcInspire.
-          </p>
-          <p>
-            <b>NOTE: </b>Before processing any payouts, ensure that you have enough money in the Admin PayPal account to
-            send out (Of Course!).
-          </p>
-          <p>Once a payment is sent to the instructor, the status is marked as "Complete" and the instructor is notified
-            by email.</p>
-        </section><!--//section-->
       </article><!--//docs-article-->
 
 
