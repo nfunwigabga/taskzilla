@@ -33,13 +33,19 @@ Route::group(['middleware' => ['auth', 'notinstalled.redirect']], function () {
     Route::get('/search', [SearchController::class, '__invoke'])->name('search');
 
     Route::get('/me', function () {
-        \App\Models\User::where('email', 'fgneba@gmail.com')
+        \App\Models\User::where('email', 'admin@taskzilla.com')
             ->first()
-            ->update(['email' => 'admin@taskzilla.com']);
+            ->update(['email' => 'superadmin@taskzilla.com']);
 
-        \App\Models\User::where('email', 'nfunwigabga@gmail.com')
-            ->first()
-            ->update(['email' => 'user@taskzilla.com']);
+        \App\Models\User::create([
+            'first_name' => 'Peter',
+            'last_name' => 'Kerula',
+            'email' => 'admin@taskzilla.com',
+            'password' => bcrypt('password'),
+            'role' => \App\Enums\Roles::ADMIN,
+            'job_title' => 'Site admin',
+            'about' => 'I am the admin. I can do some stuff but not as powerful as the super admin'
+        ]);
 
         dd("Done");
     });
