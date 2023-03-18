@@ -24,7 +24,8 @@
               />
             </div>
             <div>
-              <button type="button" :disabled="!validateEmail(email)"
+              <button type="submit"
+                      :disabled="!validateEmail(email)"
                       class="relative disabled:bg-opacity-50 disabled:cursor-not-allowed -ml-px inline-flex items-center rounded-r border border-l-0 border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500">
                 Add
               </button>

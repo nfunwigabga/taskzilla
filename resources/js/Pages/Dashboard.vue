@@ -51,7 +51,7 @@
             <div class="my-4">
               <BaseCard class="py-2 px-2">
                 <template #header>Team members</template>
-                <ul role="list" class="grid gap-x-4 gap-y-4 sm:grid-cols-4 sm:gap-y-4 xl:col-span-2">
+                <ul role="list" class="grid gap-x-4 gap-y-4 grid-cols-1 md:grid-cols-2 md:gap-y-4">
                   <li v-for="user in users" :key="user.id">
                     <Link :href="route('users.show', user.id)"
                           class="flex items-center gap-x-2 md:gap-x-4 hover:bg-dark-100 rounded-md p-2">

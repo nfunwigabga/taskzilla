@@ -13,11 +13,7 @@
           <slot />
         </div>
       </transition>
-      <ul class="w-full max-w-lg text-sm mt-4 text-gray-400 flex items-center justify-center flex-wrap gap-4">
-        <li v-for="link in links" :key="link.id">
-          <Link class="transition-colors duration-300 hover:text-gray-600" :href="link.href">{{ link.title }}</Link>
-        </li>
-      </ul>
+
     </div>
   </div>
 </template>
@@ -27,12 +23,6 @@ defineOptions({
   name: "AuthLayout"
 });
 
-const links = [
-  { id: 1, title: "asana.test", href: "#" },
-  { id: 2, title: "Pricing", href: "#" },
-  { id: 3, title: "Privacy policy", href: "#" },
-  { id: 4, title: "Terms of service", href: "#" }
-];
 </script>
 
 <style scoped>

@@ -28,7 +28,7 @@
             v-if="searchResults.length === 0 && query !== ''"
             class="relative text-center cursor-default select-none py-6 px-4 text-gray-700"
           >
-            Nothing results matching your search.
+            No results matching your search.
           </div>
           <ComboboxOption
             v-for="item in searchResults"
