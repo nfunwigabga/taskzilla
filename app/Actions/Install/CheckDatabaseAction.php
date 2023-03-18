@@ -58,6 +58,7 @@ class CheckDatabaseAction
             // Try to increase the maximum execution time
             set_time_limit(300); // 5 minutes
             Artisan::call('migrate:fresh', ['--force' => true]);
+            Artisan::call('storage:link');
 
             return true;
         } catch (\Exception $e) {
