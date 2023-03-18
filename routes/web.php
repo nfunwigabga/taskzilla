@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminProjectsController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\TeamMembersController;
@@ -23,6 +24,12 @@ use App\Http\Controllers\Web\UserNotificationsController;
 use App\Http\Controllers\Web\UserProfileController;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
+
+if (app_demo()) {
+    Route::get('/demo', function () {
+        return view("demo");
+    });
+}
 
 /*------------------------------------------------------------------------*/
 Route::group(['middleware' => ['auth', 'notinstalled.redirect']], function () {
@@ -143,6 +150,10 @@ Route::group(['middleware' => ['auth', 'notinstalled.redirect']], function () {
             Route::post('invitations', 'invite')->name('invitations.invite');
             Route::put('invitations/{invitation}/resend', 'resend')->name('invitations.resend');
             Route::delete('invitations/{invitation}/destroy', 'destroy')->name('invitations.destroy');
+        });
+
+        Route::controller(AdminProjectsController::class)->group(function () {
+            Route::get('projects', 'index')->name('projects.index');
         });
 
         // Site settings

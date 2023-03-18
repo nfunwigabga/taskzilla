@@ -52,6 +52,7 @@ import ProjectSidebarList from "@/Components/Project/ProjectSidebarList.vue";
 import { ClockIcon, CogIcon, HomeIcon, UsersIcon } from "@heroicons/vue/24/outline";
 import { computed } from "vue";
 import { usePage } from "@inertiajs/vue3";
+import { BriefcaseIcon } from "@heroicons/vue/24/solid";
 
 const favorites = computed(() => usePage().props.auth.projects.filter(p => p.is_faved));
 
@@ -66,6 +67,12 @@ const adminNav = [
     route_name: "admin.users.index",
     icon: UsersIcon,
     current: route().current("admin.users.index")
+  },
+  {
+    name: "Team Projects",
+    route_name: "admin.projects.index",
+    icon: BriefcaseIcon,
+    current: route().current("admin.projects.index")
   },
   {
     name: "Site Settings",

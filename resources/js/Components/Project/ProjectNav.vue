@@ -59,26 +59,34 @@
 </template>
 
 <script setup>
-import { LockClosedIcon } from "@heroicons/vue/24/outline";
 import { useMounted } from "@/Composables/useMounted";
 import { iconPicker } from "@/Helpers/icons";
 import { ArchiveBoxIcon } from "@heroicons/vue/24/solid";
 import ProjectsListActions from "@/Components/Project/ProjectsListActions.vue";
-import { Tooltip } from "@spartez/vue-atlaskit-next";
+import { useConfirm } from "v3confirm";
 
 const { isMounted } = useMounted();
 const props = defineProps({
   project: Object
 });
+const confirm = useConfirm();
 
 function toggleArchive() {
-  router.put(route("projects.archive", [
-    props.project.id
-  ]), {}, {
-    preserveScroll: true,
-    onError: (error) => console.log(error),
-    success: (_) => console.log("Done")
+  confirm.show("Are you sure?").then((ok) => {
+    if (ok) {
+      router.put(route("projects.archive", [
+        props.project.id
+      ]), {}, {
+        preserveScroll: true,
+        onError: (error) => console.log(error),
+        success: (_) => console.log("Done")
+      });
+    } else {
+      console.log("Declined");
+    }
   });
+
+
 }
 </script>
 
