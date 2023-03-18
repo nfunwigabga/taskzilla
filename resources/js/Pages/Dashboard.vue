@@ -38,7 +38,7 @@
               </template>
 
               <template v-else>
-                <div class="grid grid-cols-1 sm:grid-cols-4">
+                <div class="grid grid-cols-1 gap-2 sm:grid-cols-4">
                   <ProjectCreateForm type="button" />
                   <ProjectsListItem
                     v-for="project in auth.projects"
