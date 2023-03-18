@@ -40,6 +40,16 @@
       </div>
     </form>
 
+    <BaseAlert v-if="demo" class="mt-2" type="info" title="Demo Users">
+      <p class="font-semibold">Admin User</p>
+      <p>Email: admin@taskzilla.com</p>
+      <p>Password: password</p>
+      <hr class="my-2" />
+      <p class="font-semibold">Regular User</p>
+      <p>Email: user@taskzilla.com</p>
+      <p>Password: password</p>
+    </BaseAlert>
+
   </div>
 </template>
 
@@ -52,7 +62,8 @@ import BaseFormButton from "@/Components/BaseFormButton.vue";
 import { InlineDialog } from "@spartez/vue-atlaskit-next";
 
 defineProps({
-  status: String
+  status: String,
+  demo: Boolean
 });
 
 defineOptions({

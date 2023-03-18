@@ -21,6 +21,7 @@ class LoginController extends Controller
 
         return Inertia::render('Auth/Login', [
             'status' => session('status'),
+            'demo' => app_demo()
         ]);
     }
 
