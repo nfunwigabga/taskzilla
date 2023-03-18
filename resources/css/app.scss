@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --popper-theme-background-color: #ffffff;
+  --popper-theme-background-color-hover: #ffffff;
+  --popper-theme-text-color: #333333;
+  --popper-theme-border-width: 1px;
+  --popper-theme-border-style: solid;
+  --popper-theme-border-color: #eeeeee;
+  --popper-theme-border-radius: 6px;
+  --popper-theme-padding: 0px;
+  --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
+}
+
+#app {
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none !important;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.label {
+  padding: unset !important;
+}
+
+.input-wrapper[is-focused=true]:not([disabled=true]) {
+  @apply border-primary-600 #{!important};
+}
+
+.input-wrapper.select-wrapper {
+  @apply bg-slate-50/50 #{!important};
+  @apply border-[#dfe1e6] #{!important};
+}
+
+.tooltip span.label {
+  @apply px-3 py-1 #{!important};
+}
+
+thead, tbody, tfoot {
+  border-bottom: 0 solid #DFE1E6;
+}
+
+@font-face {
+  font-family: "SAFIRA";
+  src: url("/public/fonts/SafiraMarch.otf");
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+}
+
+.draggable-ghost {
+  @apply border-primary-600;
+  @apply bg-slate-100;
+}
+
+.dropdown-item {
+  @apply flex items-center gap-x-1 px-4 py-2 text-sm text-gray-700;
+}
+
+.action-button {
+  @apply hover:text-gray-800 transition-all duration-500 hover:bg-gray-100 hover:border-gray-800 w-6 h-6 rounded-full border border-dashed flex items-center justify-center border-gray-500;
+}
+
+.navlink {
+  @apply border-b-2 transition-all duration-500 hover:text-gray-700 text-sm font-semibold pb-4;
+  &.inactive {
+    @apply border-transparent hover:border-gray-400;
+  }
+
+  &.active {
+    @apply border-primary-600;
+  }
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.loading-circle {
+  @apply w-4 h-4 my-12 mx-1 bg-primary-500 rounded-full;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.6s;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.ProseMirror {
+  @apply shadow-sm;
+  @apply min-h-[8rem];
+  @apply focus:outline-none;
+  @apply transition duration-200;
+  @apply text-slate-900 sm:text-sm;
+  @apply rounded-md w-full px-3 pt-2 pb-12;
+  @apply ring-1 ring-slate-300 focus:ring-2 focus:ring-primary-500;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply text-gray-400;
+  @apply text-left;
+  @apply float-left;
+  @apply pointer-events-none;
+  @apply h-0;
+}
+
+.ProseMirror ul {
+  @apply list-disc;
+  @apply ml-4;
+}
+
+.ProseMirror h1 {
+  @apply text-xl;
+  @apply font-bold;
+}
+
+.ProseMirror h2 {
+  @apply text-lg;
+  @apply font-semibold;
+}
+
+.editor-toolbar {
+  @apply absolute z-10;
+  @apply flex items-center justify-end flex-wrap;
+  @apply gap-x-2 inset-x-0 bottom-0 px-2 py-2;
+  @apply peer-focus:bg-red-400;
+}
+
+.editor-btn {
+  @apply hover:bg-primary-100;
+  @apply px-2 border border-gray-500 rounded text-xs;
+}
+
+.editor-btn-active {
+  @apply bg-gray-100;
+}
