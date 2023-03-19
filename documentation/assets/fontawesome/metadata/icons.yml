@@ -5150,7 +5150,7 @@ desktop:
     terms:
       - computer
       - cpu
-      - demoresources
+      - demo
       - desktop
       - device
       - imac
@@ -10585,7 +10585,7 @@ laptop:
       - computer
       - cpu
       - dell
-      - demoresources
+      - demo
       - device
       - mac
       - macbook
@@ -10604,7 +10604,7 @@ laptop-code:
       - computer
       - cpu
       - dell
-      - demoresources
+      - demo
       - develop
       - device
       - mac

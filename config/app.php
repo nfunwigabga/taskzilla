@@ -16,7 +16,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-    'demoresources' => env('APP_DEMO', false),
+    'demo' => env('APP_DEMO', false),
 
     /*
     |--------------------------------------------------------------------------
