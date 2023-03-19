@@ -5,33 +5,31 @@
       Invite user
     </BaseFormButton>
 
-    <BaseModal size="lg" :is-open="isOpen" @close="isOpen=false">
+    <BaseModal size="md" :is-open="isOpen" @close="isOpen=false">
       <template #title>
         <span class="font-semibold">Invite new user</span>
       </template>
 
       <div class="space-y-4">
         <form @submit.prevent="addEmail">
-          <label for="email" class="block text-sm font-medium text-gray-700">
-            Add email to invite
-          </label>
-          <div class="mt-1 w-full flex rounded-md shadow-sm">
+          <label for="email" class="block text-sm font-medium text-gray-700">Add email to invite</label>
+          <div class="mt-1 flex rounded-md shadow-sm">
             <div class="relative flex flex-grow items-stretch focus-within:z-10">
-              <BaseFormInput
-                v-model="email"
-                placeholder="Enter email address"
-                class="block w-full rounded-none rounded-l"
-              />
+
+              <input type="email" v-model="email"
+                     name="email" id="email"
+                     class="block w-full rounded-none rounded-l-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                     placeholder="Enter email address">
             </div>
-            <div>
-              <button type="submit"
-                      :disabled="!validateEmail(email)"
-                      class="relative disabled:bg-opacity-50 disabled:cursor-not-allowed -ml-px inline-flex items-center rounded-r border border-l-0 border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500">
-                Add
-              </button>
-            </div>
+            <button type="submit"
+                    :disabled="!validateEmail(email)"
+                    class="relative disabled:bg-opacity-50 disabled:cursor-not-allowed -ml-px rounded-r border border-l-0 border-gray-300 bg-gray-50 px-4 py-0 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500">
+              Add
+            </button>
+
           </div>
         </form>
+
         <div
           class="p-2 min-h-[6rem] max-h-[8rem] border overflow-y-auto gap-1 flex items-start flex-wrap flex-1 rounded bg-slate-100">
           <div v-for="(email,index) in form.emails"

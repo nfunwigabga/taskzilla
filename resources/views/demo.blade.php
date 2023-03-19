@@ -73,7 +73,7 @@
                     </div>
                     <div class="relative -mr-40 pl-4 sm:mx-auto sm:max-w-3xl sm:px-0 lg:h-full lg:max-w-none lg:pl-12">
                         <img class="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none"
-                             src="/demo/OverviewDashboard.png" alt="">
+                             src="/demoresources/OverviewDashboard.png" alt="">
 
                         {{--                        <img class="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none"--}}
                         {{--                             src="https://tailwindui.com/img/component-images/task-app-rose.jpg" alt="">--}}

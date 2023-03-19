@@ -15,7 +15,7 @@ if (!function_exists('previous_route_name')) {
 if (!function_exists('app_demo')) {
     function app_demo()
     {
-        return config('app.demo');
+        return config('app.demoresources');
     }
 }
 

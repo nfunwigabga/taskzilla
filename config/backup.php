@@ -35,10 +35,10 @@ return [
                     base_path('installed'),
                     base_path('.editorconfig'),
                     base_path('.git'),
-                    base_path('resources/views/demo.blade.php'),
+                    base_path('resources/views/demoresources.blade.php'),
                     base_path('.env'),
                     base_path('README.md'),
-                    base_path('public/demo'),
+                    base_path('public/demoresources'),
                 ],
 
                 /*
