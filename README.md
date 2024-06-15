@@ -9,6 +9,9 @@ Think of it as a Lite, non-SaaS version of Asana. Some features include:
 - File attachments
 - Task Activity Log
 - Click-through installer
+
+## [SEE DEMO IN ACTION ON YouTube](https://www.youtube.com/watch?v=Ku5G7PgDTU4)
+
 ![Taskzilla](public/TaskZilla.jpeg "Title")
 
 
